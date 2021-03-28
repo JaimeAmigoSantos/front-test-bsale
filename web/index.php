@@ -24,8 +24,8 @@
 	<script>
 		var htmlProducts = "";
 		const callOptions = { method: 'GET', cache: 'no-cache' };
-		//const apiUrl = 'https://fathomless-lake-30617.herokuapp.com/api/v1/'
-		const apiUrl = 'http://localhost:5000/api/v1/'
+		const apiUrl = 'https://api-test-bsale.herokuapp.com/api/v1/'
+		//const apiUrl = 'http://localhost:5000/api/v1/'
 		const regPage = 5;
 		const formatter = new Intl.NumberFormat('es-CL', {
 			style: 'currency',
