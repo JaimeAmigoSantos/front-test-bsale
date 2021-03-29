@@ -21,8 +21,11 @@
 		}
 	</style>
 
+
+	<!--  
+		Variables de uso global
+	-->
 	<script>
-		var htmlProducts = "";
 		const callOptions = { method: 'GET', cache: 'no-cache' };
 		const apiUrl = 'https://api-test-bsale.herokuapp.com/api/v1/'
 		//const apiUrl = 'http://localhost:5000/api/v1/'
@@ -33,7 +36,6 @@
 			minimumFractionDigits: 0
 		});
 
-		var imgProduct = "";
 		var qryType = `all/0/1/${regPage}`;
 		var qryCount = '';
 	</script>
@@ -41,7 +43,11 @@
 </head>
 
 <body>
+	<!-- Despliega flecha volver al top  -->
 	<span class="ir-arriba icon-cheveron-up" data-ancla="arriba"></span>
+	<!-- Despliega flecha volver al top  -->
+
+	<!-- Navbar con la búsqueda -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="z-index: 999999999;">
 		<div class="container-fluid">
 		  <a class="navbar-brand" href="#">B - SALE</a>
@@ -61,7 +67,9 @@
 		  </div>
 		</div>
 	  </nav>
-	
+	<!-- Navbar con la búsqueda -->
+
+	<!-- Contenedor con selects de categorías y paginación -->
 	<div class="container fixed-top" style="padding-top: 70px; background: white;">
 		<div class="row">
 			<div class="col-md-6">
@@ -76,15 +84,31 @@
 			</div>
 		</div>
 	</div>
+	<!-- Contenedor con selects de categorías y paginación -->
 
+	<!-- Contenedor principal -->
 	<div class="container" style="padding-top: 160px;">
 
+		<!-- Contenedor loading -->
 		<div class="d-flex justify-content-center" id="div-loading"></div>
+		<!-- Contenedor loading -->
 
+		<!-- Contenedor mensaje error -->
+		<div class="row" id="div-error"></div>
+		<!-- Contenedor mensaje error -->
+
+		<!-- Contenedor donde se muestran los productos. Es refrescado cada vez que se invoca al servicio de productos -->
 		<div class="row" id="div-products" style="padding-left:30px;"></div>
+		<!-- Contenedor donde se muestran los productos. Es refrescado cada vez que se invoca al servicio de productos -->
 
 	</div>
+	<!-- Contenedor principal -->
 
+
+
+	<!-- 
+		Agregamos referencias a JQUERY y BOOTSTRAP
+	-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
@@ -97,12 +121,20 @@
 
 	<script src="https://kit.fontawesome.com/c8e5d6e878.js" crossorigin="anonymous"></script>
 	
+	<!-- Agregamos referencia a JS encargado de conectarse a la API	-->
 	<script src="js/services.js"></script>
+
+	<!-- Agregamos referencia a JS encargado de gestionar eventos de cajas de textos, botones, select, etc.	-->
 	<script src="js/initObjects.js"></script>
 
 	<script>
+		//Incocamos función existente en js/services.js para desplegar los productos
 		asyncFncProducts(qryType);
+
+		//Incocamos función existente en js/services.js para llenar combo con categprías
 		asyncFncCategories();
+
+		//Incocamos función existente en js/services.js para llenar combo con  las páginas
 		asyncFncCount("");
 	</script>
 </body>
